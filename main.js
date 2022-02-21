@@ -24,6 +24,24 @@
 /*const arrowSayHi = (userName) => {
   console.log(`Hi ${userName}! How are you?`);
 };*/
-const autoBrands = ["Audi", "BMW", "Mazda", "Toyota"];
 
-autoBrands.forEach((brand, i) => console.log(`${brand} => ${i}`));
+let userName = "John";
+let age = 30;
+let isMaried = false;
+
+const person = {
+  userName: "John",
+  age: 30,
+  isMaried: false,
+  profession: "Designer",
+};
+
+console.log(person);
+console.log(person.userName);
+console.log(person["age"]); // ниже приведен приме, можно использовать переменную в качестве названия свойства объекта
+
+let propertyName = "profession";
+console.log(person[propertyName]);
+
+person.height = 173;
+console.log(person);

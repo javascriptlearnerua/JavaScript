@@ -205,3 +205,24 @@ YouTube Channel: https://cutt.ly/jPUegSB
     autoBrands.forEach((brand, i) => console.log(`${brand} => ${i}`));
 
 # 9 Объекты:
+
+    let userName = 'John';
+    let age = 30;
+    let isMaried = false;
+
+    const person = {
+        userName: 'John',
+        age: 30,
+        isMaried: false,
+        profession: 'Designer'
+    }
+
+    console.log(person);
+    console.log(person.userName);
+    console.log(person['age']); // ниже приведен приме, можно использовать переменную в качестве названия свойства объекта
+
+    let propertyName = 'profession';
+    console.log(person[propertyName]);
+
+    // создание нового свойства для объекта
+    person.height = 173;
