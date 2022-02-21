@@ -21,4 +21,9 @@
 - комментарии
 */
 
-console.log(10 <= 12 ? "kek" : "lol");
+/*const arrowSayHi = (userName) => {
+  console.log(`Hi ${userName}! How are you?`);
+};*/
+const autoBrands = ["Audi", "BMW", "Mazda", "Toyota"];
+
+autoBrands.forEach((brand, i) => console.log(`${brand} => ${i}`));
