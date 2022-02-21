@@ -35,7 +35,7 @@ YouTube Channel: https://cutt.ly/jPUegSB
     Формула построения: (условие)?(выполняется, если условие true):(выполняется, если условие false)
     console.log(10 <= 12 ? "taki da" : "NOPE");
 
-# 5. Конкатенация строк и шаблонные строки
+# 5. Конкатенация строк и шаблонные строки:
 
     Контатенация - это объединение строк.
     let userName = "John";
@@ -43,7 +43,7 @@ YouTube Channel: https://cutt.ly/jPUegSB
     // ниже приведен пример шаблонной строки, вместо кавычек используется скобка на букве "Ё"
     console.log(`Hi ${userName}! How are you?`); // шаблонная строка
 
-# 6. Функции
+# 6. Функции:
 
     Принцип DRY - don't repeat yourself
 
@@ -71,7 +71,7 @@ YouTube Channel: https://cutt.ly/jPUegSB
     Когда вызывваем ф-цию - передаем ей аргументы ('Illia').
 
     function sayHi(username){
-         console.log(`Hi ${userName}! How are you?`)
+        console.log(`Hi ${userName}! How are you?`)
     }
 
     sayHi('Illia');
@@ -79,3 +79,129 @@ YouTube Channel: https://cutt.ly/jPUegSB
 6.2 return
 
     Return - это ф-ция возврата.
+
+    function summ(a, b){
+        return a+b;
+        // всё, что написано после return в ф-ции - игнорируется
+    }
+
+    let res = summ(10,5); // res присвоится результат ф-ции summ - 15
+
+6.3 Функция как аргумент:
+
+    function summ(a, b){
+        return a+b;
+    }
+
+    console.log(summ(10, 5));
+
+    function doSomething(func) {
+        let x = 10;
+        let y = 5;
+
+        let result = func(x, y);
+        console.log(result);
+    }
+
+    doSomething(summ);
+
+6.4 Самовызывающаяся функция IIFE:
+
+    Для того, чтобы функция вызвала сама себя, необходимо взять её в круглые скобки и рядом еще раз написать круглые скобки как при вызове обычной ф-ции
+
+    (function (){
+        console.log('Hello world!');
+    })();
+
+    (function (a,b){
+        console.log(a+b);
+    })(10, 5);
+
+6.5 Стрелочные функции:
+
+    function sayHi(username){
+        console.log(`Hi ${userName}! How are you?`)
+    }
+
+    const arrowSayHi = (userName) => {
+        console.log(`Hi ${userName}! How are you?`)
+    }
+
+    const arrowSayHi = (userName) => console.log(`Hi ${userName}! How are you?`); // если операция одна в ф-ции, то можно убрать фигурные скобки
+
+    arrowSayHi('Gus');
+
+# 7. Массивы:
+
+    const autoBrands = ['Audi', 'BMW', 'Mazda', 'Toyota'];
+
+    console.log(autoBrands[0]); // Audi
+    console.log(autoBrands[2]); // Mazda
+    console.log(autobrands.length); // 4 - длина массива
+
+7.1 Методы массивов:
+
+    arr.push(items) - добавить элемент в конец массива
+    arr.pop() - удалить элемент из конца массива
+    arr.shift() - удалить элемент из начала массива
+    arr.unshift() - добавить элемент в начало массива
+    arr.splice(startIndex, deleteCount) - удаление определенного кол-ва с определенного места
+
+    const autoBrands = ['Audi', 'BMW', 'Mazda', 'Toyota'];
+
+    Сравнение массивов происходит по ссылкам, а не по элементам массива, например:
+    let arr2 = autoBrands;
+    console.log(arr2 == autoBrands); // true
+    console.log(arr2 === autoBrands); // true
+
+    let arr3 = ['Audi', 'BMW', 'Mazda', 'Toyota'];
+    console.log(arr3 == autoBrands); // false
+    console.log(arr3 === autoBrands); // false
+
+
+    autoBrands.push('Nissan');
+    console.log(autoBrands);
+
+    autoBrands.splice(2, 1)
+    console.log(autoBrands);
+
+# 8. Циклы:
+
+    8.1 Цикл for:
+
+    for(let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+
+    const autoBrands = ['Audi', 'BMW', 'Mazda', 'Toyota'];
+
+    // перебор элементов массива
+    for (let i = 0; i < autoBrands.length; i++){
+        console.log(autoBrands[i]);
+    }
+
+    8.2 Цикл for (of):
+
+    for (let item of autoBrands){
+        console.log(item);
+    }
+
+    8.3 Цикл forEach():
+
+    const autoBrands = ['Audi', 'BMW', 'Mazda', 'Toyota'];
+
+    autoBrands.forEach(function(item, index){
+        console.log(`${item} = > ${index}`);
+    })
+
+    // передача ф-ции в цикл foreach
+    autoBrands.forEach(printBrand);
+
+    function printBrand(brand, index) {
+        console.log(`${brand} = > ${index}`);
+    }
+
+    // работа цикла с помощью стрелочной ф-ции
+    autoBrands.forEach((brand, i) => console.log(`${brand} => ${i}`));
+
+# 9 Объекты:
