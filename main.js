@@ -25,23 +25,16 @@
   console.log(`Hi ${userName}! How are you?`);
 };*/
 
-let userName = "John";
-let age = 30;
-let isMaried = false;
+class Person {
+  sayHi(name) {
+    console.log(`Hello, ${name}! My name is ${this.userName}`);
+  }
+}
 
-const person = {
-  userName: "John",
-  age: 30,
-  isMaried: false,
-  profession: "Designer",
-};
+const person1 = new Person("Mark", 30, false); // будет создан новый объект на основе класса Person
+const person2 = new Person("Павел", 27, true);
 
-console.log(person);
-console.log(person.userName);
-console.log(person["age"]); // ниже приведен приме, можно использовать переменную в качестве названия свойства объекта
-
-let propertyName = "profession";
-console.log(person[propertyName]);
-
-person.height = 173;
-console.log(person);
+console.log(person1);
+console.log(person2);
+person1.sayHi("Yurii");
+person2.sayHi("Yurii");
