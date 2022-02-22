@@ -206,6 +206,8 @@ YouTube Channel: https://cutt.ly/jPUegSB
 
 # 9 Объекты:
 
+    // объекты как и массивы ссылается на ссылку
+
     let userName = 'John';
     let age = 30;
     let isMaried = false;
@@ -226,3 +228,134 @@ YouTube Channel: https://cutt.ly/jPUegSB
 
     // создание нового свойства для объекта
     person.height = 173;
+
+    // удаление свойства
+
+    delete person.age;
+    console.log(person);
+
+    9.1 Методы в объектах:
+
+    const person = {
+        userName: 'John',
+        age: 30,
+        isMaried: false,
+        sayHi: function() {
+            console.log('hello');
+        }
+    };
+
+    person.sayHi();
+
+    person.doSomething = function() {
+        console.log('Do it');
+    };
+
+    person.doSomething();
+
+# 10. Ключевое слово this:
+
+    const person = {
+        userName: 'John',
+        age: 30,
+        isMaried: false,
+        sayHi: function (name) {
+            console.log(this);
+            console.log(`Hello, ${name}! My name is ${this.userName}.`);
+        }
+    };
+
+    person.sayHi('Illia');
+
+# 11. Обход объектов циклом for in:
+
+    // for of не может обходить неитерируемые объекты и возвращает ключи.
+
+    const person = {
+        userName: 'John',
+        age: 30,
+        isMaried: false,
+        sayHi: function (name) {
+            console.log(`Hello, ${name}! My name is ${this.userName}.`);
+        }
+    };
+
+    for (let key in person) {
+        console.log(key);
+        console.log(key, ':', person[key]);
+    }
+
+# 12. Классы. Конструкторы объектов:
+
+    Класс это как чертеж для всех будущих объектов, котрорые будут создаваться на его основе
+
+    class Person {
+        constructor(userName, age, isMaried) {
+            this.userName = userName;
+            this.age = age;
+            this.isMaried = isMaried;
+        }
+
+        sayHi(name) {
+            console.log(`Hello, ${name}! My name is ${this.userName}`);
+        }
+    }
+
+    const person1 = new Person("Mark", 30, false); // будет создан новый объект на основе класса Person
+    const person2 = new Person("Павел", 27, true);
+
+    console.log(person1);
+    console.log(person2);
+    person1.sayHi("Yurii");
+    person2.sayHi("Yurii");
+
+# 13. Выбор DOM элементов:
+
+    Выбор первого элемента по селектору (выбирается один элемент, который находится в коде раньше остальных)
+
+    document.querySelector('selector');
+
+    Добавление элементу нового класса:
+    document.querySelector('selector').classList.add('red');
+
+    Выбор коллекции элементов:
+    document.querySelectorAll('h2');
+
+    Для выполнения действий с коллекцией элементов, необходимо ее обходить в цикле:
+
+    for (let item of document.querySelectorAll('h2')) {
+        item.classList.add('red');
+    }
+
+    Также есть следующие методы:
+
+    document.getElementsByClassName(); // выбор коллекции элементов по CSS классу
+    document.getElementsByTagName(); // выбор коллекции элементов по тегу
+    document.getElementById(); // выбор одного элемента по ID
+
+# 14. Работа с CSS классами:
+
+    element.classList.add()
+    .add() - добавляет класс
+    .remove() - удаляет класс
+    .toggle() - переключает класс (если был выключен - включит и наоборот)
+    .сontains() - возвращает true или false
+
+# 15. Работа с атрибутами:
+
+    getAttribute(attrName) - возвращает значение указанного атрибута
+    setAttribute(name, value) - лобавляет указанный атрибут и его значение к элементу
+    hasAttribute(attrName) - возвращает true при наличии у жлемента указанного атрибута
+    removeAttribute(attrName) - удаляет указанный атрибут
+
+    toggleAttribute(name, force) - добавляет новый атрибут при отсутствии или удаляет существующий атрибут
+    hasAttributes() - возвращает true, если у элемента имеются какие-либо атрибуты
+    getAttributesNames() - возвращает названия атрибутов элемента
+
+    Пример:
+
+    const img = document.querySelector('#logo');
+    const srcValue = img.getAttribute('src); // выводит путь картинки
+
+    img.setAttribute('src', './img.logo.png');
+    imt.setAttribute('width', '200');
