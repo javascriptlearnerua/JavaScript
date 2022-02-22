@@ -391,3 +391,39 @@ YouTube Channel: https://cutt.ly/jPUegSB
         console.log('Click2');
         button.remove();
     }
+
+# 17. Объект event:
+
+    const list = document.querySelector('#list');
+
+    list.addEventListener('click', function(event){
+        console.log(event.target); // выведет элемент по которому клинкнули
+    })
+
+# 18. Работа с элементами:
+
+    Создать элемент
+    document.createElement('tag-name')
+
+    Изменить HTML содержимое внутри элемента
+    element.innerHTML = ''
+
+# 19. SetInterval:
+
+    Будет выполняться каждую секунду циклично
+
+    const timerIntervalID = setInterval(function(){
+        console.log('Fired');
+    }, 1000);
+
+    clearInterval(timerIntervalID)
+
+# 20. SetTimeOut:
+
+    Запускает код через определенное кол-во времени один раз
+
+    const timerID = setTimeout(function(){
+        console.log('kek');
+    }, 5000)
+
+    clearInterval(timerID);
