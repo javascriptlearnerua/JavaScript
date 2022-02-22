@@ -359,3 +359,35 @@ YouTube Channel: https://cutt.ly/jPUegSB
 
     img.setAttribute('src', './img.logo.png');
     imt.setAttribute('width', '200');
+    Некоторые атрибуты можно менять и напрямую:
+    img.src = './img/js.png';
+
+# 16. Работа с прослушкой событий
+
+    Любое действие на веб странице можно прослушать, клик, скролл, тап и тд
+
+    const button = document.querySelector('#button');
+
+    Этот способ прослушки может применяться еще раз, для обработки других действий, то есть можно создать такую же прослушку и в ней изменить действие. То есть в следующем коде будет выведено Click1, Click2
+
+    button.addEventListener('click', function(){
+        console.log('Click1');
+        button.remove();// удалит кнопку
+    })
+
+     button.addEventListener('click', function(){
+        console.log('Click2');
+        button.remove();// удалит кнопку
+    })
+
+    Этот способ будет выполнять только последнюю запись. То есть выведется только Click2
+
+    button.onclick = function () {
+        console.log('Click1');
+        button.remove();
+    }
+
+    button.onclick = function () {
+        console.log('Click2');
+        button.remove();
+    }
