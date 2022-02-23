@@ -219,17 +219,32 @@ YouTube Channel: https://cutt.ly/jPUegSB
         profession: 'Designer'
     }
 
+    Если в качестве значений свойст используются переменные, можно использовать сокращенную запись:
+
+    const person = {
+        userName, //John
+        age, // 30
+        isMaried, // false
+        profession: 'Designer'
+    }
     console.log(person);
     console.log(person.userName);
-    console.log(person['age']); // ниже приведен приме, можно использовать переменную в качестве названия свойства объекта
+    console.log(person['age']); // ниже приведен пример, можно использовать переменную в качестве названия свойства объекта
 
     let propertyName = 'profession';
     console.log(person[propertyName]);
 
-    // создание нового свойства для объекта
+    Cоздание нового свойства для объекта
+    Точечная запись:
+
     person.height = 173;
 
-    // удаление свойства
+    Либо же другой вариант, скобочная запись:
+
+    const heightProperty = 'height';
+    person[heightProperty] = 173;
+
+    Удаление свойства
 
     delete person.age;
     console.log(person);
@@ -244,6 +259,19 @@ YouTube Channel: https://cutt.ly/jPUegSB
             console.log('hello');
         }
     };
+
+    // можно еще и так объявлить метод со свойством-функцией без слова function
+
+
+    const person = {
+        userName: 'John',
+        age: 30,
+        isMaried: false,
+        sayHi() {
+            console.log('hello');
+        }
+    };
+
 
     person.sayHi();
 
@@ -427,3 +455,25 @@ YouTube Channel: https://cutt.ly/jPUegSB
     }, 5000)
 
     clearInterval(timerID);
+
+# 21 Глобальные объекты:
+
+    Window - для бразуера
+    global - для Node.js
+    globalThis - универсальный
+
+# 22 JSON:
+
+    JavaScript object notation - формат обмена дамнными между компьютерами в интернете
+
+    JSON.parse() - конвертация JSON файла в js
+    JSON.stringify() - конвертация js строки в JSON
+
+    const person = {
+        userName: 'John',
+        age: 30,
+        isMaried: false,
+    };
+
+    const k = JSON.stringify(person);
+    JSON.parse(k);
