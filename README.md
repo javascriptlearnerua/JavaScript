@@ -477,3 +477,56 @@ YouTube Channel: https://cutt.ly/jPUegSB
 
     const k = JSON.stringify(person);
     JSON.parse(k);
+
+# 23 Мутация в JavaScript
+
+    Под мутацией принято считать некорректное копирование объектов, т.к. объект это ссылочный тип
+
+    const person = {
+        name: 'Bob',
+        age:25
+    }
+
+    const person2 = person
+
+    person2.age = 26
+    person2.isAdult = true
+
+    console.log(person.age); // 26
+    console.log(person.usAdult); // true
+
+    Так как объект является ссылочным типом, при попытке копирования оба объекта будут ссылаться на одну ссылку.
+    То есть при изменении одного объекта будет меняться и другой.
+
+    Для предотвращения этого есть три варианта копирования, первые два не сработают, если объект содержит вложенный объект.
+
+    23.1 Как избежать мутаций - вариант №1 (Не сработает для вложенных объектов, т.к. ссылки на эти вложенные объекты сохраняются)
+
+        const person = {
+            name: 'Bob',
+            age:25
+        }
+
+        const person2 = Object.assign({}, person)
+
+        person2.age = 26
+
+        console.log(person2.age); // 26
+        console.log(person.age); // 25
+
+
+    23.2 Как избежать мутаций - вариант №2 (Не сработает для вложенных объектов, т.к. ссылки на эти вложенные объекты сохраняются)
+
+        const person = {
+            name: 'Bob',
+            age:25
+        }
+
+        const person2 = { ...person} // ... оператор разделения объекта на свойства
+
+        person2.name = 'Alice'
+
+        console.log(person2.name); // Alice
+        console.log(person.name); // Bob
+
+    23.3 Как избежать мутаций - вариант №3

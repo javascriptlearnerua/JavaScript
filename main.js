@@ -20,3 +20,7 @@
 - команда console.log для вывода информации в консоль браузера
 - комментарии
 */
+
+const k = 11;
+
+k ? console.log("yes") : console.log("no");
